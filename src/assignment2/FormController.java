@@ -1,4 +1,4 @@
-package javafxdb;
+package assignment2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 public class FormController {
     public TextField txtName;
@@ -18,14 +17,14 @@ public class FormController {
         String email = txtEmail.getText();
         String tel = txtTel.getText();
         try {
-            for (Student s: HomeController.listStudents) {
+            for (Class s: HomeController.listClasses) {
                 if (s.getName().equals(name))
                     throw new Exception("Ten sv da ton tai");
                 if (s.getEmail().equals(email))
                     throw new Exception("Email da ton tai");
             }
-            Student sv = new Student(name, email, tel);
-            HomeController.listStudents.add(sv);
+            Class sv = new Class(name, email, tel);
+            HomeController.listClasses.add(sv);
             backToList(null);
 
         } catch (Exception e) {

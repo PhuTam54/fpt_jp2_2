@@ -1,4 +1,4 @@
-package javafxdb;
+package assignment2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ public class Main extends Application {
         mainStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         primaryStage.setScene(new Scene(root,600,400));
-        primaryStage.setTitle("Create Student Demo");
+        primaryStage.setTitle("Class Demo");
         primaryStage.show();
     }
 }

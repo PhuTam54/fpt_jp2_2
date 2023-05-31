@@ -1,10 +1,8 @@
-package javafxdb;
+package assignment2;
 
-import javafx.collections.ObservableList;
-
-public final class Student{
+public final class Class {
     private String name, email, tel;
-    public Student(String name, String email, String tel) {
+    public Class(String name, String email, String tel) {
         this.name = name;
         this.email = email;
         this.tel = tel;
