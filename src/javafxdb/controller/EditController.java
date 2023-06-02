@@ -1,19 +1,18 @@
-package javafxdb;
+package javafxdb.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafxdb.Main;
+import javafxdb.model.Student;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class EditController{
     public TextField txtName;
@@ -62,7 +61,7 @@ public class EditController{
     }
 
     public void backToList(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/home.fxml"));
         Main.mainStage.setScene(new Scene(root, 600, 400));
     }
 }

@@ -1,4 +1,4 @@
-package assignment2;
+package assignment2_javafx_db_class;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/home.fxml"));
         primaryStage.setScene(new Scene(root,600,400));
         primaryStage.setTitle("Class Demo");
         primaryStage.show();

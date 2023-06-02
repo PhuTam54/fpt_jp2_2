@@ -1,8 +1,21 @@
-package assignment2;
+package javafxdb.model;
 
-public final class Class {
+import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+
+public final class Student{
+    private Integer id;
     private String name, email, tel;
-    public Class(String name, String email, String tel) {
+    private Button edit;
+    public Student(Integer id, String name, String email, String tel) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.tel = tel;
+        this.edit = new Button("edit");
+    }
+
+    public Student(String name, String email, String tel) {
         this.name = name;
         this.email = email;
         this.tel = tel;
@@ -30,6 +43,18 @@ public final class Class {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Button getEdit() {
+        return edit;
     }
 
     @Override
