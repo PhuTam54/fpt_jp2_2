@@ -1,10 +1,9 @@
-package java62;
+package java62_stack;
 
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Test {
+public class TestStack {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
