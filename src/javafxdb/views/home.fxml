@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxdb.controllers.HomeController">
+   <children>
+      <Text fill="WHITE" layoutX="340.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student list">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Text>
+      <Button layoutX="422.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToForm" prefHeight="37.0" prefWidth="166.0" style="-fx-background-color: black;" text="Create new student" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tbv" layoutX="13.0" layoutY="93.0" prefHeight="250.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="tcID" prefWidth="45.0" text="ID" />
+          <TableColumn fx:id="tcName" prefWidth="145.0" text="Name" />
+            <TableColumn fx:id="tcEmail" prefWidth="185.0" text="Email" />
+            <TableColumn fx:id="tcTel" prefWidth="105.0" text="Tel" />
+            <TableColumn fx:id="tcAction" prefWidth="75.0" text="Action" />
+        </columns>
+      </TableView>
+      <Text fx:id="txtMin" layoutX="270.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="23.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="293.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="6.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtSec" layoutX="300.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="30.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtDate" layoutX="141.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/" wrappingWidth="6.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtHours" layoutX="244.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="24" wrappingWidth="23.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="263.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="6.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="92.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/" wrappingWidth="6.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtDay" layoutX="69.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd" wrappingWidth="23.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtMonth" layoutX="106.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm" wrappingWidth="36.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtYear" layoutX="147.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yyyy" wrappingWidth="42.40625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

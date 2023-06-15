@@ -1,11 +1,11 @@
-package assignment2_javafx_db_class.controller;
+package assignment2_javafx_db_class.controllers;
 
+import assignment2_javafx_db_class.daopattern.ClassRepository;
 import assignment2_javafx_db_class.model.Class;
 import assignment2_javafx_db_class.Main;
 import assignment2_javafx_db_class.databaseclass.Connector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,8 +32,8 @@ public class HomeController implements Initializable {
     public TableColumn<Class, String> tcCourse;
     public TableColumn<Class, Button> tcAction;
 
-    public void goToForm(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../view/form.fxml"));
+    public void goToForm(MouseEvent actionEvent) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../views/form.fxml"));
         Main.mainStage.setScene(new Scene(root, 600, 400));
     }
 
@@ -44,20 +45,9 @@ public class HomeController implements Initializable {
         tcCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
         tcAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
         try{
-            Connection conn = new Connector().getConn();
-            // query
-            Statement stt = conn.createStatement();
-            String sql = "select * from classlist";
-            ResultSet rs = stt.executeQuery(sql);
             ObservableList<Class> list = FXCollections.observableArrayList();
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("room");
-                String tel = rs.getString("course");
-                Class s = new Class(id, name, email, tel);
-                list.add(s);
-            }
+            // query
+            list.addAll(ClassRepository.getInstance().getAll());  // DAO pattern
             tbv.setItems(list);
         }catch (Exception e){
             System.out.println("error:"+e.getMessage());
@@ -65,9 +55,8 @@ public class HomeController implements Initializable {
     }
 
     public void edit(TableColumn.CellEditEvent<Class, Button> classButtonCellEditEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../view/editform.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/editform.fxml"));
         Main.mainStage.setScene(new Scene(root, 600, 400));
-        editClass = tbv.getSelectionModel().getSelectedItem();
     }
 
 //    public void goToEditStudent(MouseEvent mouseEvent) throws Exception {

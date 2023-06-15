@@ -1,4 +1,4 @@
-//package assignment2;
+package assignment2_javafx_db_class.controllers;
 //
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
@@ -12,7 +12,7 @@
 //
 //import java.io.IOException;
 //
-//public class EditController{
+public class EditController{}
 //    public TextField txtName;
 //    public TextField txtEmail;
 //    public TextField txtTel;

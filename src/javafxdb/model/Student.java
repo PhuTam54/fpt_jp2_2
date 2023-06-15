@@ -3,10 +3,15 @@ package javafxdb.model;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public final class Student{
     private Integer id;
     private String name, email, tel;
     private Button edit;
+    private Date birthday;
+    private Time birthdayT;
     public Student(Integer id, String name, String email, String tel) {
         this.id = id;
         this.name = name;

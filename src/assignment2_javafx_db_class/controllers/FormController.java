@@ -1,5 +1,6 @@
-package assignment2_javafx_db_class.controller;
+package assignment2_javafx_db_class.controllers;
 
+import assignment2_javafx_db_class.daopattern.ClassRepository;
 import assignment2_javafx_db_class.model.Class;
 import assignment2_javafx_db_class.Main;
 import assignment2_javafx_db_class.databaseclass.Connector;
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafxdb.daopattern.StudentRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,16 +26,11 @@ public class FormController {
             String room = txtRoom.getText();
             String course = txtCourse.getText();
             Class c = new Class(name, room, course);
-            Connection conn = new Connector().getConn();
-
-            String sql = "insert into classlist(name, room, course) values(?,?,?)";
-            PreparedStatement stt = conn.prepareStatement(sql);
-            stt.setString(1,c.getName());
-            stt.setString(2,c.getRoom());
-            stt.setString(3,c.getCourse());
-            stt.executeUpdate();
-
-            backToList(null);
+            if(ClassRepository.getInstance().create(c)) {
+                backToList(null);
+            } else {
+                throw new Exception("Không thể tạo mới class");
+            }
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -43,7 +40,7 @@ public class FormController {
         }
     }
     public void backToList(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../view/home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
         Main.mainStage.setScene(new Scene(root, 600, 400));
     }
 }
