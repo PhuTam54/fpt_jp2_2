@@ -1,9 +1,6 @@
 package final_assignment_jp2;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Customer {
     private String customerName, customerEmail, customerPhoneNumber;
@@ -12,11 +9,11 @@ public class Customer {
         this.customerMap.put(customer.getCustomerName(), customer);
     }
     public void findByName(String customerName) {
-        Set<String> customerNameInList = this.customerMap.keySet();
-        if (customerNameInList.isEmpty()) {
-            System.out.println("Not found");
+        if (customerMap.containsKey(customerName)) {
+            Customer foundCustomer = customerMap.get(customerName);
+            System.out.println(foundCustomer);
         } else {
-            System.out.println(this.customerMap.get(customerName));
+            System.out.println("Not found");
         }
     }
     public void printAllCustomer() {
@@ -60,9 +57,7 @@ public class Customer {
     public void setCustomerPhoneNumber(String customerPhoneNumber) {
         this.customerPhoneNumber = customerPhoneNumber;
     }
-    public String toStringDisplay() {
-        return "Customer name: " + customerName + " - Customer email: " + customerEmail + " - Customer phone number: " + customerPhoneNumber;
-    }
+
     @Override
     public String toString() {
         return customerName + "\t\t   " + customerPhoneNumber;

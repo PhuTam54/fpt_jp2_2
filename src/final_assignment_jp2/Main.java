@@ -9,7 +9,7 @@ public class Main {
         try {
             int luaChon;
             Scanner sc = new Scanner(System.in);
-            do {
+            while (true){
                 System.out.println("------------MENU-------------");
                 System.out.println("1. Add new customer");
                 System.out.println("2. Find by name");
@@ -28,21 +28,25 @@ public class Main {
                         String customerPhoneNumber = sc.nextLine();
                         Customer customer = new Customer(customerName, customerEmail, customerPhoneNumber);
                         customerList.addCustomer(customer);
-                        System.out.println("\n1.Done");
+                        System.out.println("\nCustomer added successfully!");
                         break;
                     case 2:
                         System.out.println("Enter customer name: ");
                         String customerFindingName = sc.nextLine();
                         customerList.findByName(customerFindingName);
-                        System.out.println("\n2.Done");
+                        System.out.println("\nCustomer found successfully!");
                         break;
                     case 3:
                         customerList.printAllCustomer();
-                        System.out.println("\n3.Done");
+                        System.out.println("\nCustomer printed successfully!");
                         break;
+                    case 0:
+                        System.out.println("Goodbye!");
+                        return;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
                 }
-
-            } while (luaChon != 0);
+            }
         } catch (Exception e) {
             System.out.println("Wrong input");
         }
