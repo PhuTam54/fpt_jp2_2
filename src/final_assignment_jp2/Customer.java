@@ -18,8 +18,10 @@ public class Customer {
         System.out.println(this.customerMap.get(customerName));
     }
     public void printAllCustomer() {
-        Set<String> customerList = this.customerMap.keySet();
-        System.out.println((customerList));
+        // Print values
+        for (Customer i : customerMap.values()) {
+            System.out.println(i);
+        }
     }
     public Customer(String customerName, String customerEmail, String customerPhoneNumber) {
         this.customerName = customerName;
