@@ -28,17 +28,17 @@ public class Main {
                         String customerPhoneNumber = sc.nextLine();
                         Customer customer = new Customer(customerName, customerEmail, customerPhoneNumber);
                         customerList.addCustomer(customer);
-                        System.out.println("1.Done");
+                        System.out.println("\n1.Done");
                         break;
                     case 2:
                         System.out.println("Enter customer name: ");
                         String customerFindingName = sc.nextLine();
                         customerList.findByName(customerFindingName);
-                        System.out.println("2.Done");
+                        System.out.println("\n2.Done");
                         break;
                     case 3:
                         customerList.printAllCustomer();
-                        System.out.println("3.Done");
+                        System.out.println("\n3.Done");
                         break;
                 }
 
